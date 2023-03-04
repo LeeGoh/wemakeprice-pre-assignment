@@ -1,7 +1,32 @@
 # wemakeprice
 📌WEMAKEPRICE - HTML 문자열 출력 웹 프로그램 구현
 
+<img width="452" alt="image" src="https://user-images.githubusercontent.com/107545016/222901506-dd91c839-1639-4f3b-b312-938c5d0d14d9.png">
+
+
 <br>
+
+### 🪄 Client (Front-end) 실행방법
+
+1. git clone
+```
+ $ git clone https://github.com/LeeGoh/wemakeprice-pre-assignment.git
+```
+
+2. main branch
+```
+ $ git swich main
+```
+
+3. progect 실행
+```
+ ▶️ run!
+```
+
+4. localhost 8080 접속
+```
+ http://localhost:8080/
+```
 <br>
 
 ### 📍 Commit / PR Convention
@@ -13,6 +38,7 @@
 |refactor|코드 리팩토링|
 |style|CSS 추가/수정|
 |test|테스트 추가/수정|
+|merge|브런치 병합|
 |chore|빌드 업무 수정, 패키지 매니저 수정 (코드 변경 X)|
 |comment|필요한 주석 추가 및 변경|
 |rename|파일 혹은 폴더명을 수정하거나 옮김|
