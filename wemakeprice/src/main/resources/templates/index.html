@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML Text</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing:border-box;
+            }
+            label{
+                text-align: left;
+            }
+            .outer_box {
+                margin: 0 auto;
+                padding: 30px;
+                border: 1px solid #ccc;
+                width: 425px;
+            }
+            input, select{
+                height: 30px;
+                margin-bottom: 10px;
+                width: 225px;
+                border: 1px solid #ccc;
+                padding: 5px;
+            }
+            form {
+                text-align: right;
+                margin-bottom: 30px;
+            }
+            .output_result {
+                width: 100% - 55px;
+                margin-bottom: 10px;
+                margin-left: 55px;
+                padding: 5px;
+                word-break: break-all;
+            }
+            .output_title {
+                width: 55px;
+                float: left;
+                line-height: 30px;
+            }
+            label{
+                float: left;
+                line-height: 30px;
+            }
+            a {
+                width: 425px;
+                margin: 50px auto 5px auto;
+                display: block;
+                text-align: left;
+                color: #333;
+                text-decoration: none;
+                font-weight: 600;
+            }
+            h4 {
+                margin-bottom: 15px;
+            }
+            hr {
+                margin-bottom: 15px;
+                background: #ccc;
+                height: 1px;
+                border: 0;
+            }
+            .bottom {
+                margin-bottom: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <h3><a href="/">HTML Text</a></h3>
+        <div class="outer_box">
+            <h4>[ 입력 ]</h4>
+            <form action="/result" method="post">
+                <label>URL</label>
+                <input name="url" type="text" autocomplete="on"><br>
+
+                <label>Type</label>
+                <select name="type">
+                    <option value="HTML">HTML 태그 제외</option>
+                    <option value="TEXT">Text 전체</option>
+                </select><br>
+
+                <label> 출력 단위 묶음</label>
+                <input name="unit" type="number" value="1" dir="rtl" min="1"><br>
+
+                <input class="last_input" type="submit" value="출력">
+            </form>
+
+            <h4>[ 출력 ]</h4>
+            <div class="output_box">
+                <hr>
+                <div class="output_title">몫: </div>
+                <div class="output_result" th:utext="${quotient}">quotient</div><br>
+
+                <div class="output_title">나머지: </div>
+                <div class="output_result" th:utext="${remainder}">remainder</div><br>
+                <hr class="bottom">
+            </div>
+        </div>
+    </body>
+</html>
