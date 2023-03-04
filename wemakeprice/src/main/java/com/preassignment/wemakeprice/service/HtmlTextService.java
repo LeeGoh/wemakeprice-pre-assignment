@@ -12,10 +12,10 @@ import java.util.Arrays;
 @RequiredArgsConstructor
 public class HtmlTextService {
     private final CommonService commonService;
+    private final HtmlSourceCallService htmlSourceCallService;
 
     public ResponseDto getQuotientAndRemainder(String url, String type, Integer unit) {
-//        String htmlSource = getPageHtmlSourceByUrl(url);
-        String htmlSource = "<https>://Www.nAavErR.com/42133740";
+        String htmlSource = htmlSourceCallService.getPageHtmlSourceByUrl(url);
 
         String text = "";
         switch (type) {
@@ -30,11 +30,6 @@ public class HtmlTextService {
         }
 
         return getQuotientAndRemainder(text, unit);
-    }
-
-    // URI로 HTML Source 데이터 추출
-    private String getPageHtmlSourceByUrl(String url) {
-        return "";
     }
 
     // HTML 태그 제외 문자열
