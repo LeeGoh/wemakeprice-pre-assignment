@@ -5,8 +5,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -38,11 +36,11 @@ public class HtmlTextService {
 
     // HTML 태그 제외 문자열
     private String getStringWhenRemoveHtml(String htmlSource) {
-        String engText = htmlSource.replaceAll("<(/)?([a-zA-Z]*)(\\\\s[a-zA-Z]*=[^>]*)?(\\\\s)*(/)?>", "");
+        String engText = htmlSource.replaceAll("<[^>]*>", "");
         engText = engText.replaceAll("[^a-zA-Z]", "");
         String number = htmlSource.replaceAll("[^0-9]", "");
 
-        return commonService.sortAndIntersectArrays(engText, number);
+        return commonService.intersectArrays(engText, number);
     }
 
     // Text 전체 문자열
@@ -50,7 +48,7 @@ public class HtmlTextService {
         String english = htmlSource.replaceAll("[^a-zA-Z]", "");
         String number = htmlSource.replaceAll("[^0-9]", "");
 
-        return commonService.sortAndIntersectArrays(english, number);
+        return commonService.intersectArrays(english, number);
     }
 
     //몫, 나머지 문자열 반환
