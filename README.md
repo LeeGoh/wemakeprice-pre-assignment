@@ -27,6 +27,14 @@
 ```
  http://localhost:8080/
 ```
+
+5. 데이터 입력
+```
+ ex)
+ URL: https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com
+ Type: HTML 태그 제외
+ 출력 단위 묶음: 15
+```
 <br>
 
 ### 📍 Commit / PR Convention
