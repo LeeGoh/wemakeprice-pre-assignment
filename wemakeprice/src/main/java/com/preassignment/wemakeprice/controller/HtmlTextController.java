@@ -24,12 +24,11 @@ public class HtmlTextController {
     public String postFormData(HttpServletRequest request, Model model) {
         String url = request.getParameter("url");
         String type = request.getParameter("type");
-        Integer num = Integer.parseInt(request.getParameter("unit"));
+        Integer unit = Integer.parseInt(request.getParameter("unit"));
 
-        ResponseDto response = htmlTextService.getQuotientAndRemainder(url, type, num);
+        ResponseDto response = htmlTextService.getQuotientAndRemainder(url, type, unit);
         model.addAttribute("quotient", response.getQuotient());
         model.addAttribute("remainder", response.getRemainder());
-        model.addAttribute("uri", url);
 
         return "index";
     }
