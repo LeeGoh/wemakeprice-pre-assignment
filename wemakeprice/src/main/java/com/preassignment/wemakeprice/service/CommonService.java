@@ -1,6 +1,5 @@
 package com.preassignment.wemakeprice.service;
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -9,10 +8,10 @@ import java.util.Arrays;
 @Slf4j
 @Service
 public class CommonService {
-    // 배열 정렬 및 교차 출력
-    public String sortAndIntersectArrays(String english, String number) {
-        String[] englishArr = stringDuplicate(english);
-        String[] numberArr = stringDuplicate(number);
+    // 배열 교차 출력
+    public String intersectArrays(String english, String number) {
+        String[] englishArr = sortArrays(english);
+        String[] numberArr = sortArrays(number);
 
         String text = "";
         if (englishArr.length >= numberArr.length) {
@@ -30,18 +29,12 @@ public class CommonService {
         return text;
     }
 
-    // 문자열 중복 제거 메서드
-    public String[] stringDuplicate(String str) {
-        String s = "";
-        for (int i = 0; i < str.length(); i++) {
-            if (str.indexOf(str.charAt(i)) == i)
-                s += str.charAt(i);
-        }
+    // 배열 정렬
+    public String[] sortArrays(String str) {
+        String[] sortArr = str.split("");
+        Arrays.sort(sortArr);
+        Arrays.sort(sortArr, String.CASE_INSENSITIVE_ORDER);
 
-        String[] deduplicate = s.split("");
-        Arrays.sort(deduplicate);
-        Arrays.sort(deduplicate, String.CASE_INSENSITIVE_ORDER);
-
-        return deduplicate;
+        return sortArr;
     }
 }
