@@ -24,7 +24,7 @@ public class HtmlTextService {
                 text = getStringWhenAllText(htmlSource);
                 break;
             default:
-                throw new RuntimeException("");
+                throw new RuntimeException("해당되는 선택이 없음");
         }
 
         System.out.println("-----");
