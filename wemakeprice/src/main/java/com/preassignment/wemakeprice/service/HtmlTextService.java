@@ -29,6 +29,10 @@ public class HtmlTextService {
                 throw new RuntimeException("");
         }
 
+        System.out.println("-----");
+        log.info(text);
+        System.out.println("-----");
+
         return getQuotientAndRemainder(text, unit);
     }
 
@@ -38,9 +42,6 @@ public class HtmlTextService {
         engText = engText.replaceAll("[^a-zA-Z]", "");
         String number = htmlSource.replaceAll("[^0-9]", "");
 
-        log.info(engText);
-        log.info(number);
-
         return commonService.sortAndIntersectArrays(engText, number);
     }
 
@@ -48,9 +49,6 @@ public class HtmlTextService {
     private String getStringWhenAllText(String htmlSource) {
         String english = htmlSource.replaceAll("[^a-zA-Z]", "");
         String number = htmlSource.replaceAll("[^0-9]", "");
-
-        log.info(english);
-        log.info(number);
 
         return commonService.sortAndIntersectArrays(english, number);
     }
@@ -75,6 +73,11 @@ public class HtmlTextService {
             for (int i = text.length()-r; i < text.length(); i++) {
                 remainder += text.charAt(i);
             }
+
+            System.out.println("-----");
+            log.info(quotient);
+            log.info(remainder);
+            System.out.println("-----");
         }
 
         return ResponseDto.builder()

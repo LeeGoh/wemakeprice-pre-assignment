@@ -4,6 +4,7 @@ import com.preassignment.wemakeprice.service.HtmlTextService;
 import com.preassignment.wemakeprice.dto.ResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -15,17 +16,21 @@ public class HtmlTextController {
     private final HtmlTextService htmlTextService;
 
     @GetMapping
-    public String getIndex() {
+    public String getIndex(Model model) {
         return "index";
     }
 
-    @PostMapping("/html-form")
-    public String htmlForm(HttpServletRequest request) {
+    @PostMapping("/result")
+    public String postFormData(HttpServletRequest request, Model model) {
         String url = request.getParameter("url");
         String type = request.getParameter("type");
-        Integer num = Integer.parseInt(request.getParameter("num"));
+        Integer num = Integer.parseInt(request.getParameter("unit"));
 
         ResponseDto response = htmlTextService.getQuotientAndRemainder(url, type, num);
+        model.addAttribute("quotient", response.getQuotient());
+        model.addAttribute("remainder", response.getRemainder());
+        model.addAttribute("uri", url);
+
         return "index";
     }
 }
